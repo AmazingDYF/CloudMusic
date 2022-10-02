@@ -39,39 +39,40 @@
     <template #default>
       <!-- <img :src="playDetail.coverImgUrl" alt="" class="bacSub" /> -->
       <div class="body">
-        <van-image
-          class="coverSub"
-          ref="cover"
-          radius="15px"
-          width="200px"
-          height="200px"
-          :src="playDetail.coverImgUrl"
-        />
-        <div class="content">
-          <h4 class="name">{{ playDetail.name }}</h4>
-          <p class="tags">
-            标签：
-            <van-tag
-              class="tag"
-              color=""
-              round
-              type="primary"
-              v-for="item in playDetail.tags"
-              :key="item"
-              >{{ item }}</van-tag
-            >
-          </p>
-          <p class="desc">
-            {{ playDetail.description }}
-          </p>
+        <div class="dd">
+          <van-image
+            class="coverSub"
+            ref="cover"
+            radius="15px"
+            width="200px"
+            height="200px"
+            :src="playDetail.coverImgUrl"
+          />
+          <div class="content">
+            <h4 class="name">{{ playDetail.name }}</h4>
+            <p class="tags">
+              标签：
+              <van-tag
+                class="tag"
+                color=""
+                round
+                type="primary"
+                v-for="item in playDetail.tags"
+                :key="item"
+                >{{ item }}</van-tag
+              >
+            </p>
+            <p class="desc">
+              {{ playDetail.description }}
+            </p>
+          </div>
+          <img :src="playDetail.coverImgUrl" alt="" class="bacSub" />
         </div>
-        <img :src="playDetail.coverImgUrl" alt="" class="bacSub" />
       </div>
     </template>
   </van-popup>
 </template>
 <script>
-// import MySongList from "../components/common/SongList.vue";
 import MySongList from "../components/RankList/RankList.vue";
 import MyFooter from "../components/common/Footer.vue";
 // import { getColor } from "../components/util/index";
@@ -175,33 +176,38 @@ export default {
 .detail {
   width: 100%;
   height: 100%;
-
-  .bacSub {
-    display: block;
-    width: 120%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: -10%;
-    z-index: -1;
-    filter: blur(40px);
+  p {
+    width: 100%;
   }
+
   .body {
     position: absolute;
     top: 0;
+    width: 100%;
     height: 100%;
     padding-bottom: 10px;
+    .dd {
+      position: absolute;
+    }
+    .bacSub {
+      display: block;
+      width: 110%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -5%;
+      z-index: -1;
+      filter: blur(40px);
+    }
     .coverSub {
       display: block;
       margin: auto;
-
       margin-top: 80px;
     }
     .content {
       margin: auto;
-      width: 80%;
+      width: 90%;
       color: white;
-
       .name {
         text-align: center;
       }
@@ -209,6 +215,7 @@ export default {
         padding: 5px 0;
       }
       .tags {
+        font-size: 15px;
         .tag {
           margin-left: 5px;
           color: white;
@@ -220,7 +227,8 @@ export default {
         font-size: 15px;
         line-height: 25px;
         word-break: break-all; //英文
-        white-space: pre-wrap; //中文
+        white-space: pre-wrap; //中
+        padding-bottom: 50px;
       }
     }
   }

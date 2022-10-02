@@ -26,4 +26,6 @@ vue + vant
 
 ### 项目效果预览
 
-<img src="./src/assets/cloudmusic/home.png" style="zoom:25%;" /><img src="./src/assets/cloudmusic/playDetail.png" style="zoom:25%;" /><img src="./src/assets/cloudmusic/serach.png" style="zoom:25%;" /><img src="./src/assets/cloudmusic/playList.png" style="zoom:25%;" /><img src="./src/assets/cloudmusic/singer.png" style="zoom:25%;" />
+| ![首页](./src/assets/cloudmusic/home.png)       | ![歌单](./src/assets/cloudmusic/playDetail.png) | ![搜索结果](./src/assets/cloudmusic/serach.png)     |
+| ----------------------------------------------- | ----------------------------------------------- | --------------------------------------------------- |
+| ![播放页](./src/assets/cloudmusic/playList.png) | ![歌手](./src/assets/cloudmusic/singer.png)     | ![首页](./src/assets/cloudmusic/playListDetail.png) |
