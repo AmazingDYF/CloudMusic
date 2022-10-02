@@ -91,7 +91,7 @@
           />
           <span>评论</span>
         </li>
-        <li @click="show = false">
+        <li @click="showShare = true">
           <van-icon
             class="iconfont icon"
             class-prefix="icon"
@@ -119,6 +119,13 @@
           <span class="creater">创作者:{{ moreInfo.creater }}</span>
         </li>
       </ul>
+      <van-share-sheet
+        v-model:show="showShare"
+        title="立即分享给好友"
+        :options="options"
+        @close="showShare = false"
+        @cancel="showShare = false"
+      />
     </template>
   </van-popup>
 </template>
@@ -130,6 +137,21 @@ export default {
   data() {
     return {
       src: require("./assets/audio/cmsj.mp3"),
+      showShare: false,
+      options: [
+        [
+          { name: "微信", icon: "wechat" },
+          { name: "朋友圈", icon: "wechat-moments" },
+          { name: "微博", icon: "weibo" },
+          { name: "QQ", icon: "qq" },
+        ],
+        [
+          { name: "复制链接", icon: "link" },
+          { name: "分享海报", icon: "poster" },
+          { name: "二维码", icon: "qrcode" },
+          { name: "小程序码", icon: "weapp-qrcode" },
+        ],
+      ],
     };
   },
   methods: {
@@ -140,7 +162,6 @@ export default {
       "setStatus",
       "setAudio",
       "setShow",
-      "updatePlayList",
       "setCurrentSong",
       "setPlayList",
       "setMoreShow",

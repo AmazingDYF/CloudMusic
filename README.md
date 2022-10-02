@@ -1,24 +1,39 @@
-# music
+## 安装
 
-## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 运行
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 打包
+
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### 技术栈
+
 ```
-npm run lint
+vue vant
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 后端接口
+
+```
+使用[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi.git)调取网易云官方api
+```
+
+### 项目效果预览
+
+#### 首页
+
+<img src="C:\Users\longer\AppData\Roaming\Typora\typora-user-images\image-20221002145325052.png" style="zoom:50%;" />
+
+#### 播放页
+
+![]()

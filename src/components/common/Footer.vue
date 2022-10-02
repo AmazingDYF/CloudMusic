@@ -88,6 +88,7 @@ export default {
   },
   mounted() {
     console.log(this.rate);
+
     /* const currObj = this.dateFor(this.$refs.myaudio.currentTime);
     const durrObj = this.dateFor(this.$refs.myaudio.duration);
     const total = currObj.process / durrObj.process; //当前播放时间

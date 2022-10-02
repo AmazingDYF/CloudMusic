@@ -8,7 +8,13 @@
           <span class="songName">{{ currentSong.name }}</span>
           <span class="singer">{{ currentSong.singer }}</span>
         </p>
-        <van-icon name="star" class="shape" size="25px" />
+        <van-icon
+          class="iconfont shape"
+          class-prefix="icon"
+          name="fenxiang"
+          size="25px"
+          @click="showShare = true"
+        />
       </div>
 
       <component
@@ -26,7 +32,7 @@
           :percentage="$store.state.rate"
           stroke-width="3"
           :show-pivot="false"
-          color="linear-gradient(to right, #be99ff, #7232dd)"
+          color="#7c7c7c"
           :style="{ width: '70%', margin: 'auto' }"
         /><span class="right">{{ $store.state.totalTime }}</span>
         <van-grid column-num="5" :border="false" :style="{ width: '100%' }">
@@ -120,6 +126,13 @@
       </div>
     </div>
   </div>
+  <van-share-sheet
+    v-model:show="showShare"
+    title="立即分享给好友"
+    :options="options"
+    @close="showShare = false"
+    @cancel="showShare = false"
+  />
 </template>
 <script>
 import MyContent from "../components/detail/Mcontent.vue";
@@ -133,6 +146,21 @@ export default {
       songName: "",
       singer: "",
       conName: "MyContent",
+      showShare: false,
+      options: [
+        [
+          { name: "微信", icon: "wechat" },
+          { name: "朋友圈", icon: "wechat-moments" },
+          { name: "微博", icon: "weibo" },
+          { name: "QQ", icon: "qq" },
+        ],
+        [
+          { name: "复制链接", icon: "link" },
+          { name: "分享海报", icon: "poster" },
+          { name: "二维码", icon: "qrcode" },
+          { name: "小程序码", icon: "weapp-qrcode" },
+        ],
+      ],
     };
   },
   methods: {
@@ -143,6 +171,7 @@ export default {
       "setTotalTime",
       "setPlayList",
       "setCurrentSong",
+      "setShowShare",
     ]),
     conversion() {
       if (this.conName == "MyContent") {
