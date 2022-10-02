@@ -1,5 +1,14 @@
 <template>
   <div class="content">
+    <div class="bar">
+      <img
+        class="playbar"
+        :class="paused ? 'roast' : 'reverse'"
+        src="../../assets/images/play-bar.png"
+        alt=""
+      />
+    </div>
+
     <div class="dsic" ref="dsic" :class="paused ? 'active' : 'pause'">
       <img class="cover" :src="src" alt="" />
     </div>
@@ -63,6 +72,22 @@ export default {
   .van-grid {
     color: white;
   }
+  .bar {
+    position: absolute;
+    left: 50%;
+    margin: auto;
+    top: 85px;
+    width: 18%;
+    height: 18%;
+    z-index: 1;
+    transform-origin: left top;
+    transform: rotate(-28deg);
+  }
+  .playbar {
+    width: 100%;
+    height: 100%;
+    transform-origin: left top;
+  }
   .dsic {
     margin: 80px auto 0;
     width: 250px;
@@ -88,6 +113,29 @@ export default {
     width: 70%;
     margin: 70px auto 0;
   }
+}
+
+@keyframes forwardRoation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+@keyframes reverseRoation {
+  0% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.roast {
+  animation: forwardRoation 1s linear forwards;
+}
+.reverse {
+  animation: reverseRoation 1s linear forwards;
 }
 // 旋转动画
 @keyframes rotation {

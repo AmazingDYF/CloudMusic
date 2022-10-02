@@ -205,7 +205,7 @@ export default {
       }
     },
     previous() {
-      if (this.playList.length > 0) {
+      if (this.playList.length > 1) {
         let index = this.playList.findIndex((item) => item.state);
         let arr = this.playList;
         arr[index].state = false;
