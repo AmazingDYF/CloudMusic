@@ -26,4 +26,4 @@ vue vant
 
 ### 项目效果预览
 
-<img src="./src/assets/cloudmusic/home.png" style="zoom:50%;" /><img src="./src/assets/cloudmusic/playDetail.png" style="zoom:50%;" /><img src="./src/assets/cloudmusic/serach.png" style="zoom:50%;" /><img src="./src/assets/cloudmusic/playList.png" style="zoom:50%;" /><img src="./src/assets/cloudmusic/singer.png" style="zoom:50%;" />
+<img src="./src/assets/cloudmusic/home.png" style="zoom:30%;" /><img src="./src/assets/cloudmusic/playDetail.png" style="zoom:30%;" /><img src="./src/assets/cloudmusic/serach.png" style="zoom:30%;" /><img src="./src/assets/cloudmusic/playList.png" style="zoom:30%;" /><img src="./src/assets/cloudmusic/singer.png" style="zoom:30%;" />
