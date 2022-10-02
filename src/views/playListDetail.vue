@@ -175,8 +175,7 @@ export default {
 .detail {
   width: 100%;
   height: 100%;
-  background-image: url("https://p1.music.126.net/6QbE9r2JeqBz3j3Kva--4A==/109951163038217098.jpg");
-  background-size: 100% 100%;
+
   .bacSub {
     display: block;
     width: 120%;

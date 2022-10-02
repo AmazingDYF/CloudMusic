@@ -1,120 +1,123 @@
 <template>
   <div class="detail">
-    <div class="header">
-      <van-icon @click="goBack" class="down" name="arrow-down" size="25px" />
-      <p class="musicDetail">
-        <span class="songName">{{ currentSong.name }}</span>
-        <span class="singer">{{ currentSong.singer }}</span>
-      </p>
-      <van-icon name="star" class="shape" size="25px" />
-    </div>
+    <img :src="currentSong.cover" alt="" class="bacSub" />
+    <div class="bod">
+      <div class="header">
+        <van-icon @click="goBack" class="down" name="arrow-down" size="25px" />
+        <p class="musicDetail">
+          <span class="songName">{{ currentSong.name }}</span>
+          <span class="singer">{{ currentSong.singer }}</span>
+        </p>
+        <van-icon name="star" class="shape" size="25px" />
+      </div>
 
-    <component
-      :is="conName"
-      :paused="status"
-      :time="$store.state.currentTime"
-      :src="currentSong.cover"
-      :id="currentSong.id"
-      @click="conversion"
-    ></component>
+      <component
+        :is="conName"
+        :paused="status"
+        :time="$store.state.currentTime"
+        :src="currentSong.cover"
+        :id="currentSong.id"
+        @click="conversion"
+      ></component>
 
-    <div class="bottom">
-      <span class="left">{{ $store.state.currentTime }}</span
-      ><van-progress
-        :percentage="$store.state.rate"
-        stroke-width="3"
-        :show-pivot="false"
-        color="linear-gradient(to right, #be99ff, #7232dd)"
-        :style="{ width: '70%', margin: 'auto' }"
-      /><span class="right">{{ $store.state.totalTime }}</span>
-      <van-grid column-num="5" :border="false" :style="{ width: '100%' }">
-        <van-grid-item>
-          <template #icon>
-            <!-- 通过 class-prefix 指定类名为 my-icon -->
-            <van-icon
-              v-if="circulate == 1"
-              class="iconfont"
-              class-prefix="icon"
-              name="xunhuanbofang"
-              @click="loopPlay"
-              :style="{ fontSize: '30px' }"
-            />
-            <van-icon
-              v-if="circulate == 2"
-              class="iconfont"
-              class-prefix="icon"
-              name="suijibofang"
-              @click="loopPlay"
-              :style="{ fontSize: '30px' }"
-            />
-            <van-icon
-              v-if="circulate == 3"
-              class="iconfont"
-              class-prefix="icon"
-              name="danquxunhuan"
-              @click="loopPlay"
-              :style="{ fontSize: '30px' }"
-            />
-          </template>
-        </van-grid-item>
-        <van-grid-item>
-          <template #icon>
-            <!-- 通过 class-prefix 指定类名为 my-icon -->
-            <van-icon
-              @click="previous"
-              class="iconfont"
-              class-prefix="icon"
-              name="shangyishou"
-              :style="{ fontSize: '40px' }"
-            />
-          </template>
-        </van-grid-item>
-        <van-grid-item>
-          <template #icon>
-            <!-- 通过 class-prefix 指定类名为 my-icon -->
-            <van-icon
-              v-if="status"
-              class="iconfont"
-              class-prefix="icon"
-              name="bofang"
-              @click="playing"
-              :style="{ fontSize: '50px' }"
-            />
-            <van-icon
-              v-else
-              class="iconfont"
-              class-prefix="icon"
-              name="bofang1"
-              @click="playing"
-              :style="{ fontSize: '50px' }"
-            />
-          </template>
-        </van-grid-item>
-        <van-grid-item>
-          <template #icon>
-            <!-- 通过 class-prefix 指定类名为 my-icon -->
-            <van-icon
-              @click="next"
-              class="iconfont"
-              class-prefix="icon"
-              name="xiayishou"
-              :style="{ fontSize: '40px' }"
-            />
-          </template>
-        </van-grid-item>
-        <van-grid-item>
-          <template #icon>
-            <!-- 通过 class-prefix 指定类名为 my-icon -->
-            <van-icon
-              class="iconfont"
-              class-prefix="icon"
-              name="bofangduilie"
-              @click="setShow(true)"
-              :style="{ fontSize: '30px' }"
-            />
-          </template>
-        </van-grid-item>
-      </van-grid>
+      <div class="bottom">
+        <span class="left">{{ $store.state.currentTime }}</span
+        ><van-progress
+          :percentage="$store.state.rate"
+          stroke-width="3"
+          :show-pivot="false"
+          color="linear-gradient(to right, #be99ff, #7232dd)"
+          :style="{ width: '70%', margin: 'auto' }"
+        /><span class="right">{{ $store.state.totalTime }}</span>
+        <van-grid column-num="5" :border="false" :style="{ width: '100%' }">
+          <van-grid-item>
+            <template #icon>
+              <!-- 通过 class-prefix 指定类名为 my-icon -->
+              <van-icon
+                v-if="circulate == 1"
+                class="iconfont"
+                class-prefix="icon"
+                name="xunhuanbofang"
+                @click="loopPlay"
+                :style="{ fontSize: '30px' }"
+              />
+              <van-icon
+                v-if="circulate == 2"
+                class="iconfont"
+                class-prefix="icon"
+                name="suijibofang"
+                @click="loopPlay"
+                :style="{ fontSize: '30px' }"
+              />
+              <van-icon
+                v-if="circulate == 3"
+                class="iconfont"
+                class-prefix="icon"
+                name="danquxunhuan"
+                @click="loopPlay"
+                :style="{ fontSize: '30px' }"
+              />
+            </template>
+          </van-grid-item>
+          <van-grid-item>
+            <template #icon>
+              <!-- 通过 class-prefix 指定类名为 my-icon -->
+              <van-icon
+                @click="previous"
+                class="iconfont"
+                class-prefix="icon"
+                name="shangyishou"
+                :style="{ fontSize: '40px' }"
+              />
+            </template>
+          </van-grid-item>
+          <van-grid-item>
+            <template #icon>
+              <!-- 通过 class-prefix 指定类名为 my-icon -->
+              <van-icon
+                v-if="status"
+                class="iconfont"
+                class-prefix="icon"
+                name="bofang"
+                @click="playing"
+                :style="{ fontSize: '50px' }"
+              />
+              <van-icon
+                v-else
+                class="iconfont"
+                class-prefix="icon"
+                name="bofang1"
+                @click="playing"
+                :style="{ fontSize: '50px' }"
+              />
+            </template>
+          </van-grid-item>
+          <van-grid-item>
+            <template #icon>
+              <!-- 通过 class-prefix 指定类名为 my-icon -->
+              <van-icon
+                @click="next"
+                class="iconfont"
+                class-prefix="icon"
+                name="xiayishou"
+                :style="{ fontSize: '40px' }"
+              />
+            </template>
+          </van-grid-item>
+          <van-grid-item>
+            <template #icon>
+              <!-- 通过 class-prefix 指定类名为 my-icon -->
+              <van-icon
+                class="iconfont"
+                class-prefix="icon"
+                name="bofangduilie"
+                @click="setShow(true)"
+                :style="{ fontSize: '30px' }"
+              />
+            </template>
+          </van-grid-item>
+        </van-grid>
+      </div>
     </div>
   </div>
 </template>
@@ -228,68 +231,85 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgb(76, 76, 76);
-  .header {
-    width: 100%;
-    height: 60px;
-    line-height: 0px;
+  .van-grid {
     color: white;
-    .down {
-      height: 100%;
-      line-height: 60px;
-      float: left;
-      left: 25px;
-    }
-    .musicDetail {
-      display: block;
-      width: 70%;
-      height: 100%;
-      margin: auto;
-
-      text-align: center;
-      .songName {
-        display: inline-block;
-        width: 100%;
-        font-size: 20px;
-        line-height: 35px;
-        overflow: hidden; // 溢出部分隐藏
-        white-space: nowrap; // 文字不换行
-        text-overflow: ellipsis; // 显示省略号
-        color: white;
-      }
-      .singer {
-        display: inline-block;
-        width: 100%;
-        line-height: 25px;
-        font-size: 15px;
-      }
-    }
-    .shape {
-      position: absolute;
-      height: 60px;
-      line-height: 60px;
-      // float: right;
-      right: 25px;
-      top: 0;
-    }
   }
 
-  .bottom {
+  .bacSub {
+    margin: 0;
+    display: block;
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    // background-color: rgb(76, 76, 76);
+    height: 100%;
+    z-index: -1;
+    filter: blur(40px); /* 高斯模糊 */
+  }
+  .bod {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .header {
+      width: 100%;
+      height: 60px;
+      line-height: 0px;
+      color: white;
+      .down {
+        height: 100%;
+        line-height: 60px;
+        float: left;
+        left: 25px;
+      }
+      .musicDetail {
+        display: block;
+        width: 70%;
+        height: 100%;
+        margin: auto;
 
-    .left {
-      position: relative;
-      top: 10px;
-      left: 10px;
+        text-align: center;
+        .songName {
+          display: inline-block;
+          width: 100%;
+          font-size: 20px;
+          line-height: 35px;
+          overflow: hidden; // 溢出部分隐藏
+          white-space: nowrap; // 文字不换行
+          text-overflow: ellipsis; // 显示省略号
+          color: white;
+        }
+        .singer {
+          display: inline-block;
+          width: 100%;
+          line-height: 25px;
+          font-size: 15px;
+        }
+      }
+      .shape {
+        position: absolute;
+        height: 60px;
+        line-height: 60px;
+        // float: right;
+        right: 25px;
+        top: 0;
+      }
     }
-    .right {
-      float: right;
-      position: relative;
-      top: -10px;
-      right: 10px;
+
+    .bottom {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      // background-color: rgb(76, 76, 76);
+
+      .left {
+        position: relative;
+        top: 10px;
+        left: 10px;
+      }
+      .right {
+        float: right;
+        position: relative;
+        top: -10px;
+        right: 10px;
+      }
     }
   }
 }

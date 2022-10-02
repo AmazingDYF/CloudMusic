@@ -10,7 +10,7 @@ import MySingerClass from '../views/SingerClass.vue'
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
-        { path: '/', redirect: '/playListDetail' },
+        { path: '/', redirect: '/home' },
         { path: '/home', component: MyHome },
         { path: '/detail', component: MyDetail },
         { path: '/searchResult/:keyword', component: MySearchResult, props: true, name: 'sea' },

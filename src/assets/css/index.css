@@ -3,3 +3,7 @@
     --van-grid-item-content-background-color: none;
     /* --van-popup-background-color: yellowgreen; */
 }
+
+#app::-webkit-scrollbar {
+    display: none !important;
+}

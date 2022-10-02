@@ -60,6 +60,9 @@ export default {
 .content {
   width: 100%;
   // height: 100%;
+  .van-grid {
+    color: white;
+  }
   .dsic {
     margin: 80px auto 0;
     width: 250px;
